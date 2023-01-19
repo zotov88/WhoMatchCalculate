@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DEF1EC"
+    tools:context=".Aggregator">
+
+    <LinearLayout
+        android:id="@+id/layoutOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/et_output"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            android:layout_marginBottom="40dp"
+            android:editable="false"
+            android:padding="10dp"
+            android:textSize="18sp"
+            tools:ignore="Deprecated">
+        </EditText>
+
+        <Button
+            android:id="@+id/bt_statistic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/round_button"
+            android:gravity="center_horizontal|center_vertical"
+            android:minWidth="190dp"
+            android:text="Вклад"
+            android:textColor="#77010009" />
+
+        <Button
+            android:id="@+id/bt_to_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/round_button"
+            android:gravity="center_horizontal|center_vertical"
+            android:minWidth="190dp"
+            android:text="Подравнять"
+            android:textColor="#77010009" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

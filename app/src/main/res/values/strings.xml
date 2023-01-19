@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ВСкладчине</string>
+    <string name="input_text">Input text</string>
+    <string name="calc">Посчитать</string>
+    <string name="clear">очистить</string>
+    <string name="opisanie"><![CDATA[Введите данные в формате \n<имя сумма>\nКаждый участник на отдельной строке]]></string>
+    <string name="share">поделиться</string>
+    <string name="about">справка</string>
+</resources>
