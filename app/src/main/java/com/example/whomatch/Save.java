@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Save extends AppCompatActivity {
+public final class Save extends AppCompatActivity {
 
     private final BufferDataMap bdm = BufferDataMap.getInstance();
     private EditText et_fileName;

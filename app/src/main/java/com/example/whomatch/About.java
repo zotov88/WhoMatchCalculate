@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class About extends AppCompatActivity {
+public final class About extends AppCompatActivity {
 
     TextView textView;
 

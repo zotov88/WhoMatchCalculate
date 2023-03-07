@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.whomatch.Person;
 import com.example.whomatch.R;
-import com.example.whomatch.TableConstructor;
+import com.example.whomatch.data.TableConstructor;
 import com.example.whomatch.data.BufferDataMap;
 
 import java.util.ArrayList;
@@ -67,7 +67,8 @@ public final class MainTable extends AppCompatActivity {
         }
     }
 
-    private void distributionMoney(Stack<Person> giveStack, Stack<Person> getStack, ArrayList<String[]> list, int avg) {
+    private void distributionMoney(Stack<Person> giveStack, Stack<Person> getStack,
+                                   final ArrayList<String[]> list, final int avg) {
         while (getStack.size() > 0 && giveStack.size() > 0) {
             Person give = giveStack.pop();
             Person get = getStack.pop();

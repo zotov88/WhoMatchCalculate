@@ -1,4 +1,4 @@
-package com.example.whomatch;
+package com.example.whomatch.data;
 
 import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.model.TableColumnWeightModel;

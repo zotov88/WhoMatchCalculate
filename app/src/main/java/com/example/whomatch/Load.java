@@ -26,10 +26,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Load extends AppCompatActivity {
+public final class Load extends AppCompatActivity {
 
     private final BufferDataMap bdm = BufferDataMap.getInstance();
-    private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> listOfFileNames;
     private static final String FILE_NAME = "user_data.txt";
@@ -41,7 +40,7 @@ public class Load extends AppCompatActivity {
         setContentView(R.layout.activity_load);
 
         listOfFileNames = getListFileNames(getListFiles());
-        listView = findViewById(R.id.list_saved);
+        ListView listView = findViewById(R.id.list_saved);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, listOfFileNames);
         listView.setAdapter(adapter);
 
@@ -78,7 +77,7 @@ public class Load extends AppCompatActivity {
         });
     }
 
-    private void overwriting(int position) {
+    private void overwriting(final int position) {
         File fileFrom = new File(getApplicationInfo().dataDir + File.separator + "files"
                 + File.separator + listOfFileNames.get(position));
 
@@ -95,7 +94,7 @@ public class Load extends AppCompatActivity {
         }
     }
 
-    private void removeFile(int position) {
+    private void removeFile(final int position) {
         File file = new File(getApplicationInfo().dataDir + File.separator + "files"
                 + File.separator + listOfFileNames.get(position));
         file.delete();

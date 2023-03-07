@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.whomatch.R;
-import com.example.whomatch.TableConstructor;
+import com.example.whomatch.data.TableConstructor;
 import com.example.whomatch.data.BufferDataMap;
 
 import java.util.HashMap;
