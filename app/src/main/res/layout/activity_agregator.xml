@@ -20,37 +20,53 @@
             android:id="@+id/et_output"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:fontFamily="@font/ubuntu"
             android:layout_marginTop="30dp"
-            android:background="@null"
             android:layout_marginBottom="40dp"
+            android:background="@null"
             android:editable="false"
+            android:gravity="center"
             android:padding="10dp"
             android:textSize="18sp"
-            tools:ignore="Deprecated">
-        </EditText>
+            tools:ignore="Deprecated"></EditText>
 
-        <Button
-            android:id="@+id/bt_statistic"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layout_bt"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/round_button"
-            android:gravity="center_horizontal|center_vertical"
-            android:minWidth="190dp"
-            android:text="Вклад"
-            android:textColor="#77010009" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
-        <Button
-            android:id="@+id/bt_to_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/round_button"
-            android:gravity="center_horizontal|center_vertical"
-            android:minWidth="190dp"
-            android:text="Подравнять"
-            android:textColor="#77010009" />
+            <ImageButton
+                android:id="@+id/bt_statistic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/collllor"
+                android:contentDescription="TODO"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/ic_percent" />
+
+            <ImageButton
+                android:id="@+id/bt_to_table"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/collllor"
+                android:contentDescription="TODO"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/ic_balance" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

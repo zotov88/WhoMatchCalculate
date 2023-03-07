@@ -8,6 +8,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.whomatch.data.BufferDataMap;
 import com.example.whomatch.tables.MainTable;
@@ -23,8 +24,8 @@ public final class Aggregator extends AppCompatActivity {
         setContentView(R.layout.activity_agregator);
 
         EditText output = findViewById(R.id.et_output);
-        Button bt_stat = findViewById(R.id.bt_statistic);
-        Button bt_table = findViewById(R.id.bt_to_table);
+        ImageButton bt_stat = findViewById(R.id.bt_statistic);
+        ImageButton bt_table = findViewById(R.id.bt_to_table);
 
         output.setText(Html.fromHtml("<b>" + "Всего: " + "</b> "));
         output.append(bdm.getTotal() + "\n");

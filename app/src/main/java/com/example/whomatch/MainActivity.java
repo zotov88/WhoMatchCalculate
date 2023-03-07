@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,16 +41,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button bt_calc = findViewById(R.id.bt_calculate);
-        Button bt_clear = findViewById(R.id.bt_clear);
-        Button bt_add = findViewById(R.id.bt_add);
+        ImageButton bt_calc = findViewById(R.id.bt_calculate);
+        ImageButton bt_clear = findViewById(R.id.bt_clear);
+        ImageButton bt_add = findViewById(R.id.bt_add);
+        ImageButton bt_save = findViewById(R.id.bt_save);
+        ImageButton bt_download = findViewById(R.id.bt_download);
         input_name = findViewById(R.id.et_input_name);
         input_sum = findViewById(R.id.et_input_sum);
         listView = findViewById(R.id.list_view);
-        file = new File(this.getFilesDir(), FILE_NAME);
+        file = new File(getFilesDir(), FILE_NAME);
 
         initArrayFromFile();
         updateAdapter();
+
+        bt_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSaveView(v);
+            }
+        });
+
+        bt_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLoadView(v);
+            }
+        });
 
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,10 +97,20 @@ public class MainActivity extends AppCompatActivity {
         bt_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateFile(false);
-                listView.setAdapter(null);
-                bdm.resetList();
-                Toast.makeText(getApplicationContext(), "Очищено", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Delete")
+                        .setMessage("Are you sure you want to delete this list?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateFile(false);
+                                listView.setAdapter(null);
+                                bdm.resetList();
+                                Toast.makeText(getApplicationContext(), "Clear", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(R.drawable.ic_alert_red)
+                        .show();
             }
         });
 
@@ -97,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                new AlertDialog.Builder(MainActivity.this).setIcon(android.R.drawable.ic_delete)
+                new AlertDialog.Builder(MainActivity.this).setIcon(R.drawable.ic_delete)
                         .setTitle("Удалить?").setMessage(bdm.getList().get(position))
                         .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                             @Override
@@ -164,6 +191,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAggregatorView(View v) {
         Intent intent = new Intent(this, Aggregator.class);
+        startActivity(intent);
+    }
+
+    public void onSaveView(View v) {
+        Intent intent = new Intent(this, Save.class);
+        startActivity(intent);
+    }
+
+    public void onLoadView(View v) {
+        Intent intent = new Intent(this, Load.class);
         startActivity(intent);
     }
 }
